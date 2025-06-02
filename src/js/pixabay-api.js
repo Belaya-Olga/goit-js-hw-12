@@ -4,8 +4,8 @@ const instance = axios.create({
   baseURL: 'https://pixabay.com/api/',
 });
 
-export function getImagesByQuery(query, page) {
-  return instance.get('', {
+export async function getImagesByQuery(query, page) {
+  const responce = await instance.get('', {
     params: {
       key: '50364096-1c7ce5aa76102baff0b747707',
       q: query,
@@ -16,5 +16,6 @@ export function getImagesByQuery(query, page) {
       page: page
     }
   });
+  return responce.data;
 }
 

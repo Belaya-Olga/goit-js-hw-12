@@ -46,8 +46,7 @@ async function clickStart(event) {
 
   page = 1;
   try {
-    const response= await getImagesByQuery(query)
-      const data = response.data;
+    const data = await getImagesByQuery(query);
       if (data.hits.length === 0) {
         iziToast.error({
           title: 'Error',
@@ -78,8 +77,7 @@ async function loadMoreImages() {
 
   
   try {
-    const response = await getImagesByQuery(query, page);
-    const data = response.data;
+    const data = await getImagesByQuery(query, page);
     createGallery(data.hits);
 
     if ((page * perPage) >= data.totalHits) {
